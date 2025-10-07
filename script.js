@@ -164,7 +164,7 @@ alert("Hubo un error al acortar la URL. Por favor, intente nuevamente.");
                           var fecha_entregadoElement = document.getElementById("fecha_entregado").textContent = fecha_entregado;
 
                       // Obtén el botón de WhatsApp por su ID
-                      var whatsappButton = document.getElementById('whatsappButton');
+                      vvar sendMessageButton = document.getElementById('sendMessageButton');
                       var impresoraButton = document.getElementById('impresoraButton');
 
                       // Obtén la URL actual
@@ -283,9 +283,9 @@ async function shortURL(urlLarga) {
                     statusMessage.className = 'success';
 
                     // Deshabilitar permanentemente el botón de WhatsApp después del envío
-                    whatsappButton.disabled = true;
-                    whatsappButton.style.opacity = "0.5"; // Dar un efecto visual de deshabilitado
-                    whatsappButton.style.cursor = "not-allowed";
+                          sendMessageButton.disabled = true;
+                          sendMessageButton.style.opacity = "0.5";
+                          sendMessageButton.style.cursor = "not-allowed";
                 }, 3000);
             } else {
                 console.error('Error en la respuesta:', responseData);
@@ -307,10 +307,11 @@ async function shortURL(urlLarga) {
     var currentURL = window.location.href;
 
     if (currentURL.indexOf('sharelink=1') !== -1) {
-        whatsappButton.style.display = 'none';
+        sendMessageButton.style.display = 'none';
         impresoraButton.style.display = 'none';
     }
 
     console.log(`Teléfono obtenido: ${telefono}`);
         
+
 
