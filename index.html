@@ -1,189 +1,121 @@
 <!DOCTYPE html>
-          <html lang="es">
-            <head>
-              <meta charset="UTF-8">
-              <meta http-equiv="X-UA-Compatible" content="IE=edge">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Ticket de Compra</title>
-              <link rel="stylesheet" href="estilo.css" />
- 
-          </head>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket de Compra</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-          <div id="header">
-            <div class="button-container">
-              <!-- Contenedor de botones -->
-             <div class="button-box">
-            <!-- Botón de WhatsApp con ícono -->
-                <a href="#" id="impresoraButton">
-                  <img class="boton" src="Print.png" class="ImganelLogo" width= "60%" id "foto">
-                </a>
-                          
-                          <!-- Botón existente de WhatsApp -->
-                          
-                <a href="#" id="sendMessageButton">
-                  <img class="boton" src="wsp.png" class="ImganelLogo" width= "60%" id "foto">
-                  <div id="statusMessage"></div>
-                </a>
+  <div id="header">
+    <div class="button-container">
+      <div class="button-box">
+        <a href="#" id="impresoraButton">
+          <img src="Print.png" width="60%" alt="Imprimir">
+        </a>
+        <a href="#" id="sendMessageButton">
+          <img src="wsp.png" width="60%" alt="WhatsApp">
+          <div id="statusMessage"></div>
+        </a>
+      </div>
+    </div>
+  </div>
 
-                          <!--<button id="sendMessageButton">Enviar WhatsApp</button>
-                          <div id="statusMessage"></div>-->
-              </div>
-              </div>
-            </div>
-          </div>
+  <input type="hidden" id="url" value="">
 
-              <!-- Agregamos el input oculto para la URL -->
-          <input type="hidden" id="url" value="">
-              
-          <div id="thermal-pos">
-                  
-          <div id="thermal-pos">
-                  
-          <div class="label">
-                 <img class="boton" src="logomarum.png" class="ImganelLogo" width= "40%" id = "foto">
-               <br/>
-            <p class="info-tienda">
-                 Av mi dirección Jr Camilo Carrillo 131 //ref: Frente a la cntraloria.
-                <br>
-                Horario: Lunes a Sabado 8am a 8pm / Domingos de 9am a 3pm
-                <br>
-                 Telefono: 961100231
-        
-                <br>
-              
-          
-        </div>
-                  
-          <!-- ESTRUCTURA DEL TICKET-->
+  <div id="thermal-pos">
+    <div class="label">
+      <img src="logomarum.png" width="40%" alt="Logo">
+      <br/>
+      <p class="info-tienda">
+        Av mi dirección Jr Camilo Carrillo 131 //ref: Frente a la contraloría.<br>
+        Horario: Lunes a Sábado 8am a 8pm / Domingos de 9am a 3pm<br>
+        Teléfono: 961100231
+      </p>
+    </div>
 
-           <div class="ticket">
-                        <b>TICKET:</b> <br>
-                        <h1 class="nro_boleta" id="nro_boleta_id"></h1>
-                    
-                        <div class="fecharecep">
-                            <p class="fecha">
-                                <b>FECHA RECEPCIÓN:</b> <br>
-                                <b id="fecha"></b>
-                            </p>
-                        </div>
-                    
-                        <b>CLIENTE:</b> <br>
-                        <h1 class="nombre-cliente" id="nombre_client"></h1>
-                    
-     
-                    
-                        <div class="label">
-                            <p class="fecha_entrega">
-                                <b>FECHA ENTREGA:</b> <br>
-                                <span id="fecha_entrega"></span>
-                            </p>
-                        </div>
-                    </div>
+    <div class="ticket">
+      <b>TICKET:</b><br>
+      <h1 class="nro_boleta" id="nro_boleta_id"></h1>
 
-                
-                <table class="table">
-                  <tbody id="tablaBody">
-                      <tr class="table-header">
-                        <th><h2>Cant</h2></th>
-                        <th><h2>Descripcion</h2></th>
-                        <th><h2>Precio</h2></th>
-                        <th><h2>Subtotal</h2></th> <!-- Nueva columna para Subtotal -->
-                      </tr>
-                  <!-- SCRIPT PARA CREAR EL POP UP -->
+      <div class="fecharecep">
+        <p class="fecha">
+          <b>FECHA RECEPCIÓN:</b><br>
+          <b id="fecha"></b>
+        </p>
+      </div>
 
+      <b>CLIENTE:</b><br>
+      <h1 class="nombre-cliente" id="nombre_client"></h1>
 
-                       
+      <div class="label">
+        <p class="fecha_entrega">
+          <b>FECHA ENTREGA:</b><br>
+          <span id="fecha_entrega"></span>
+        </p>
+      </div>
+    </div>
 
-                       
-                            
-                      
+    <table class="table">
+      <tbody id="tablaBody">
+        <tr class="table-header">
+          <th><h2>Cant</h2></th>
+          <th><h2>Descripción</h2></th>
+          <th><h2>Precio</h2></th>
+          <th><h2>Subtotal</h2></th>
+        </tr>
+      </tbody>
 
-                                  <tr class="table-footer top-line">
-                                      <td class="" colspan="3">Total Venta:</td>
-                                      <td colspan="3"><h2 id="total"></h2></td>
-                                  </tr>
+      <tr class="table-footer top-line">
+        <td colspan="3">Total Venta:</td>
+        <td><h2 id="total"></h2></td>
+      </tr>
 
-                                  <tr class="table-footer">
-                                      <td colspan="3"><h2>Descuento:</h2></td>
-                                      <td colspan="3"><h2 id="descuento"></h2></td>
-                                      
-                                  </tr>
-                                  
-                                  <tr class="table-footer">
-                                      <td colspan="3"><h2>A cuenta:</h2></td>
-                                      <td colspan="3"><h2 id="a_cuenta"></h2></td>
-                                      
-                                  </tr>
-                                      <tr class="table-footer">
-                                      <td colspan="3"><h2>Pago al entregar:</h2></td>
-                                      <td colspan="3"><h2 id="a_cuenta_dos"></h2></td>  
-                                  </tr>
-                                  
-                                  <tr class="table-footer">
-                                      <td colspan="3"><h2>Por Pagar</h2></td>
-                                      <td colspan="3"><h2 id="total_por_pagar"></h2></td>
-                                  </tr>
-                                                  
-                                  <tr class="table-footer">
-                                      <td colspan="3"><h2 id=0></h2></td>
-                                      <td colspan="3"><h2 id="porcent_desc_plata"></h2></td>
+      <tr class="table-footer">
+        <td colspan="3"><h2>Descuento:</h2></td>
+        <td><h2 id="descuento"></h2></td>
+      </tr>
 
-                                  </tr>
-                                  
-                                  <tr class="table-footer">
-                                      <td colspan="3"><h2></h2></td>
-                                      <td colspan="3"><h2 id="porcent_desc_plata"></h2></td>
-                                  </tr>
-                                  
-                                
-                </table>
-                          <br/>
+      <tr class="table-footer">
+        <td colspan="3"><h2>A cuenta:</h2></td>
+        <td><h2 id="a_cuenta"></h2></td>
+      </tr>
 
-                          <p id="textOutput"> </p>
-                          <p class="saldo-text">
-                              <b><span class="estado-deuda" id="estado"></span></b>
-                          </p>
-                          <br/>
-                          <p class="prendas:">
-                              <b><span class="total_prendas" id="total_prendas"></span>
-                          </p>
-                        <div class="policy">
+      <tr class="table-footer">
+        <td colspan="3"><h2>Pago al entregar:</h2></td>
+        <td><h2 id="a_cuenta_dos"></h2></td>
+      </tr>
 
-                              <p class="policy-title">
-                                  <b>GRACIAS POR SU PREFERENCIA:</b>
-                              </p>
-                          
-                        <div class="policy">
+      <tr class="table-footer">
+        <td colspan="3"><h2>Por Pagar</h2></td>
+        <td><h2 id="total_por_pagar"></h2></td>
+      </tr>
+    </table>
 
-            <p class="policy-title">
-                <b>Preguntar por condiciones en las promociones:</b>
-            </p><br/>
+    <p class="saldo-text"><b><span class="estado-deuda" id="estado"></span></b></p>
+    <p><b><span class="total_prendas" id="total_prendas"></span></b></p>
 
-La promoción de lavado al kilo no incluye casacas gruesas o delicadas , toallas de baño grueso ni juego de sabana.<br/>
-         
-                                          <p class="policy-title">
-                                              <b>CONDICIONES DE SERVICIO:</b>
-                                          </p>
-                                      
-                                          <p class="m-0"> 
-                                                  -No nos hacemos responsables por destiñidos, adornos, cierres, deterioros o confecciones defectuosas por uso.<br/>
-                                                  
-                                                  -Revisar los bolsillos, no cubrimos daños por objetos olvidados (papel, tintes, etc.).<br/> 
-                                                  
-                                                  -No hay responsabilidad si la prenda no tiene etiqueta de limpieza.<br/> 
-                                                  
-                                                  -No nos responsabilizamos por dinero u objetos de valor en las prendas.<br/> 
-                                                  
-                                                  -No se aceptan reclamos después de la recogida.<br/> 
-                                                                
-                                                  -Si se prueba responsabilidad, se reembolsará hasta tres veces el valor del servicio.<br/> 
-                                                  
-                                                  -Después de 45 días, se cobrará un 50% adicional por almacenaje.<br/> 
-                                                  
-                                                  -Después de 60 días, las prendas no reclamadas se rematarán sin derecho a reclamo.<br/>
-                                                  
-                                                  -Revise sus prendas antes de dejarlas y al recogerlas.<br/>
-                                                           
-                                  
-              </body>
+    <div class="policy">
+      <p class="policy-title"><b>GRACIAS POR SU PREFERENCIA:</b></p>
+      <p class="policy-title"><b>Preguntar por condiciones en las promociones:</b></p>
+      <p>La promoción de lavado al kilo no incluye casacas gruesas o delicadas, toallas de baño gruesas ni juegos de sábanas.</p>
+      <p class="policy-title"><b>CONDICIONES DE SERVICIO:</b></p>
+      <p class="m-0">
+        - No nos hacemos responsables por destiñidos, adornos, cierres o defectos previos.<br>
+        - Revisar bolsillos; no cubrimos daños por objetos olvidados.<br>
+        - No hay responsabilidad si la prenda no tiene etiqueta de limpieza.<br>
+        - No nos responsabilizamos por dinero u objetos de valor.<br>
+        - No se aceptan reclamos después de la recogida.<br>
+        - Si se prueba responsabilidad, se reembolsará hasta tres veces el valor del servicio.<br>
+        - Después de 45 días, se cobrará un 50% adicional por almacenaje.<br>
+        - Después de 60 días, las prendas no reclamadas se rematarán sin reclamo.<br>
+        - Revise sus prendas antes de dejarlas y al recogerlas.
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
